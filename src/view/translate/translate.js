@@ -1,5 +1,5 @@
 import React,{useEffect} from "react"
-import axios from "axios"
+import {request} from "../../bin/axiosConfig"
 import "./translate.css"
 import { Input } from 'antd';
 const { Search } = Input;
@@ -7,9 +7,9 @@ const { Search } = Input;
 const  Translate = ()=>{
   useEffect(()=>{
     console.log("打印了一次")
-    axios({
-      mounteds:"get",
-      url:"http://www.baidu.com"
+    request({
+      methods:"get",
+      url:""
     }).then((response)=>{
       console.log(response)
     })
