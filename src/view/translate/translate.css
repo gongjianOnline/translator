@@ -1,0 +1,8 @@
+.translate-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.search-container{
+    width: 80%;
+    border: 1px solid red;
+}
