@@ -1,31 +1,39 @@
-import React,{useEffect} from "react"
-import {request} from "../../bin/axiosConfig"
-import "./translate.css"
+import React from "react"
+import axios from "axios"
+// import {request} from "../../bin/axiosConfig"
 import { Input } from 'antd';
 const { Search } = Input;
 
-const  Translate = ()=>{
-  useEffect(()=>{
-    console.log("打印了一次")
-    request({
+
+const Translate = ()=>{
+
+  const get_baiduFun = (value)=>{
+    axios({
       methods:"get",
-      url:""
+      url:"/translate/api/trans/vip/translate",
+      params:{
+        q:value,
+        from:"en",
+        to:"zh",
+        appid:"2015063000000001",
+        salt:"1435660288",
+        sign:"f89f9594663708c1605f3d736d01d2d4"
+      }
     }).then((response)=>{
+      console.log("调用了百度")
       console.log(response)
     })
-  },[])
-  let onSearch = ()=>{
-    console.log("123456")
   }
+
   return (
-    <div className="translate-wrapper">
-      <div className="search-container">
+    <div>
+      <div>
         <Search
-          placeholder="请输入查询的参数"
+          placeholder="input search text"
           allowClear
-          enterButton="查询"
+          enterButton="Search"
           size="large"
-          onSearch={()=>onSearch()}
+          onSearch={(value)=>get_baiduFun(value)}
         />
       </div>
     </div>
