@@ -1,9 +1,12 @@
 import React,{useState} from "react"
+import Configure from "../configure/configure"
 import axios from "axios"
 import md5 from 'js-md5'
 import "./translate.css"
+import "../../App.css"
 import { Input } from 'antd';
 const { Search } = Input;
+
 
 const Translate = ()=>{
   // 翻译功能
@@ -35,16 +38,26 @@ const Translate = ()=>{
   }
   // 选项卡功能
   const [select,setSelect] = useState(false)
-  const selectFun = (event)=>{
-    setSelect((!select))
+  let selectFun = (event,index)=>{
+    let AppElement = document.getElementsByClassName("App")[0];
+    if(index === 1){
+      setSelect(false)
+      AppElement.classList.add('banner')
+      AppElement.classList.remove('banner2')
+    }else{
+      setSelect(true)
+      AppElement.classList.add('banner2')
+      AppElement.classList.remove('banner')
+    }
   }
   return (
     <div className="translate-wrapper">
+      <Configure/>
       <div className="option-container">
         <div className={select?"":"select-content"}
-             onClick={(event)=>selectFun(event)}>单词</div>
+             onClick={(event)=>selectFun(event,1)}>单词</div>
         <div className={select?"select-content":""}
-             onClick={(event)=>selectFun(event)}>句子</div>
+             onClick={(event)=>selectFun(event,0)}>句子</div>
       </div>
       <div className="search-container">
         <Search

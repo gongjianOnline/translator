@@ -1,0 +1,7 @@
+.configure-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 60%;
+    padding: 0 10px;
+    color: #fff;
+}
