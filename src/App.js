@@ -10,20 +10,14 @@ function App() {
     if(event.target.className !== "target-container"){
       let targetElement = document.getElementsByClassName("language-container")[0]
       let targetElementClassList = (targetElement.className).split(" ");
-      console.log(targetElementClassList)
-      console.log(targetElementClassList.indexOf("isShowTrue"));
       if(targetElementClassList.indexOf("isShowFalse")>0){
-        console.log("进入判断");
         targetElement.classList.remove("isShowFalse");
         targetElement.classList.add("isShowTrue");
       }
     }else if(event.target.className !== "source-language-container"){
       let targetElement = document.getElementsByClassName("source-language-container")[0]
       let targetElementClassList = (targetElement.className).split(" ");
-      console.log(targetElementClassList)
-      console.log(targetElementClassList.indexOf("isShowTrue"));
       if(targetElementClassList.indexOf("isShowFalse")>0){
-        console.log("进入判断");
         targetElement.classList.remove("isShowFalse");
         targetElement.classList.add("isShowTrue");
       }

@@ -51,12 +51,21 @@ const Translate = ()=>{
       AppElement.classList.remove('banner')
     }
   }
-  //组件传值
+  //源语言组件传值
+  let sourceData = {};
+  let getSource = (data)=>{
+    sourceData = data
+  }
+  //目标语言组件传值
+  let configureData = {};
+  let configure = (data)=>{
+    sourceData = data
+  }
   return (
     <div className="translate-wrapper">
       <div className="OPTLanguage-container">
-        <Source/>
-        <Configure/>
+        <Source getSource={(data)=>getSource(data)}/>
+        <Configure configure={(data)=>configure(data)}/>
       </div>
       <div className="option-container">
         <div className={select?"":"select-content"}

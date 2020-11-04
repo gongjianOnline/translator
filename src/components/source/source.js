@@ -140,8 +140,7 @@ const Source = (props)=>{
   })
   //目标按钮显示
   let targetLanguageFun = (item)=>{
-    console.log("更新按钮")
-    console.log(item)
+    props.getSource(item);
     setSourceLanguage(
       {
         value:item.value,

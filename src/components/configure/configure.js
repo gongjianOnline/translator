@@ -136,8 +136,7 @@ const Configure = (props)=>{
   })
   //目标按钮显示
   let targetLanguageFun = (item)=>{
-    console.log("更新按钮")
-    console.log(item)
+    props.configure(item)
     setLanguage(
       {
         value:item.value,
