@@ -1,6 +1,6 @@
 import axios from 'axios'
 const request= axios.create({
-  // baseURL: 'http://api.fanyi.baidu.com'
+  // baseURL: 'http://api.fanyi.baidu.com/'
 })
 
 // 添加请求拦截器

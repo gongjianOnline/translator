@@ -1,7 +1,8 @@
 import React,{useState} from "react"
 import Configure from "../../components/configure/configure"
 import Source from "../../components/source/source"
-import axios from "axios"
+// import axios from "axios"
+import {request} from "../../bin/axiosConfig"
 import md5 from 'js-md5'
 import "./translate.css"
 import "../../App.css"
@@ -14,7 +15,7 @@ const Translate = ()=>{
   const [query,setQuery] = useState("")
   const get_baiduFun = (value)=>{
     if(value){
-      axios({
+      request({
         methods:"get",
         url:"/translate/api/trans/vip/translate",
         params:{
