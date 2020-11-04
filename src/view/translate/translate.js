@@ -88,7 +88,7 @@ const Translate = ()=>{
         <Search
           placeholder="请输入要查询的内容"
           allowClear
-          enterButton="查询"
+          enterButton="翻译"
           size="large"
           onInput={(event)=>{emptyInputFun(event)}}
           onSearch={(value)=>get_baiduFun(value)}

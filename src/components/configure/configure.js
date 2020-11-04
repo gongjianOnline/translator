@@ -2,7 +2,8 @@ import {useState} from "react"
 import "./configure.css"
 const Configure = (props)=>{
   //显示隐藏菜单栏
-  const targetFun = ()=>{
+  const targetFun = (e)=>{
+    e.stopPropagation(); //阻止冒泡
     let elem = document.getElementsByClassName("language-container");
     let classList = (elem[0].className).split(' ')
     if(classList.indexOf("isShowTrue") < 0){

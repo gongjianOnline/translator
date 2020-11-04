@@ -2,7 +2,8 @@ import {useState} from "react"
 import "./source.css"
 const Source = (props)=>{
   //显示隐藏菜单栏
-  const targetFun = ()=>{
+  const targetFun = (e)=>{
+    e.stopPropagation();
     let elem = document.getElementsByClassName("source-language-container");
     let classList = (elem[0].className).split(' ')
     if(classList.indexOf("isShowTrue") < 0){
