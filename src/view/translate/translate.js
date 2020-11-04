@@ -1,5 +1,6 @@
 import React,{useState} from "react"
-import Configure from "../configure/configure"
+import Configure from "../../components/configure/configure"
+import Source from "../../components/source/source"
 import axios from "axios"
 import md5 from 'js-md5'
 import "./translate.css"
@@ -50,9 +51,13 @@ const Translate = ()=>{
       AppElement.classList.remove('banner')
     }
   }
+  //组件传值
   return (
     <div className="translate-wrapper">
-      <Configure/>
+      <div className="OPTLanguage-container">
+        <Source/>
+        <Configure/>
+      </div>
       <div className="option-container">
         <div className={select?"":"select-content"}
              onClick={(event)=>selectFun(event,1)}>单词</div>
