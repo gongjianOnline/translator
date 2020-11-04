@@ -11,6 +11,7 @@
     background: #ffffff;
     border-radius: 6px;
     color: #333333;
+    user-select:none;
 }
 .language-container{
     position: absolute;

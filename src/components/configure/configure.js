@@ -1,4 +1,4 @@
-import react,{useState} from "react"
+import {useState} from "react"
 import "./configure.css"
 const Configure = (props)=>{
   //显示隐藏菜单栏
@@ -130,8 +130,8 @@ const Configure = (props)=>{
   ];
   let [Language,setLanguage] = useState(()=>{
     return {
-      value:'zh',
-      label:'中文'
+      value:'en',
+      label:'英文'
     }
   })
   //目标按钮显示

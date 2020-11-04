@@ -19,15 +19,13 @@ const Translate = ()=>{
         url:"/translate/api/trans/vip/translate",
         params:{
           q:value,
-          from:"auto",
-          to:"en",
+          from:Sources.value,
+          to:Configures.value,
           appid:"20200929000576935",
           salt:"1435660288",
           sign:md5(`20200929000576935${value}1435660288_byVNY9Ujvm4tS3Vxrws`)
         }
       }).then((response)=>{
-        console.log("调用了百度")
-        console.log(response)
         setQuery(response.data.trans_result[0].dst)
       })
     }
@@ -52,20 +50,33 @@ const Translate = ()=>{
     }
   }
   //源语言组件传值
-  let sourceData = {};
+  const [Sources,setSources] = useState(()=>{
+    return{
+      value:'auto',
+      label:"自动检测"
+    }
+  })
   let getSource = (data)=>{
-    sourceData = data
+    setSources({value:data.value,label:data.label})
   }
   //目标语言组件传值
-  let configureData = {};
-  let configure = (data)=>{
-    sourceData = data
+  const [Configures,setConfigures] = useState(()=>{
+    return{
+      value:'en',
+      label:"英文"
+    }
+  })
+  let getConfigure = (data)=>{
+    setConfigures({
+      value:data.value,
+      label: data.label
+    })
   }
   return (
     <div className="translate-wrapper">
       <div className="OPTLanguage-container">
         <Source getSource={(data)=>getSource(data)}/>
-        <Configure configure={(data)=>configure(data)}/>
+        <Configure configure={(data)=>getConfigure(data)}/>
       </div>
       <div className="option-container">
         <div className={select?"":"select-content"}
