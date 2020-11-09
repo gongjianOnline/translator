@@ -14,20 +14,14 @@ const Translate = ()=>{
   // 翻译功能
   const [query,setQuery] = useState("")
   const get_baiduFun = (value)=>{
-    let signMD5 = md5(`20200929000576935${value}1435660288_byVNY9Ujvm4tS3Vxrws`)
-    console.log(`20200929000576935${value}1435660288_byVNY9Ujvm4tS3Vxrws`)
-    console.log(md5(`20200929000576935${value}1435660288_byVNY9Ujvm4tS3Vxrws`))
     if(value){
       request({
         methods:"get",
-        url:"/translate/baiduCurrency",
+        url:"/baiduCurrency",
         params:{
           word:value,
           from:Sources.value,
           to:Configures.value,
-          appid:"20200929000576935",
-          salt:"1435660288",
-          sign:signMD5
         }
       }).then((response)=>{
         if(response.data.error_code){
@@ -35,7 +29,6 @@ const Translate = ()=>{
         }else{
           setQuery(response.data.trans_result[0].dst)
         }
-
       })
     }
   }
